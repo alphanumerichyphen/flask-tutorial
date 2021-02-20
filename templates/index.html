@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Home Page</title>
-	</head>
-	<body>
-		<h1>Konichiwa! {{content}}-san</h1>
-		<p>O Genki desu ka?</p>
-		{% for _ in range(5) %}
-			<p>Python in HTML</p>
-		{% endfor %}
-	</body>
-</html>
+{% extends "base.html" %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+<p>O Genki desu ka?</p>
+{% endblock %}
