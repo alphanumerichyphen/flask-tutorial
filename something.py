@@ -6,23 +6,18 @@ app = Flask(__name__)
 def homepage():
 	return render_template("index.html")
 
-'''@app.route("/<name>")
+@app.route("/<name>")
 def user(name):
 	return render_template("user.html", content=name)
-'''
+
 
 @app.route("/login", methods=["POST", "GET"])
 def forms():
 	if request.method == "POST":
 		us = request.form["nm"]
-		return redirect(url_for("person", usr=us))
+		return redirect(url_for("user", name=us))
 	else:
 		return render_template("login.html")
-
-
-@app.route("/<usr>")
-def person(usr):
-	return f"<h1>{usr}</h1>"
 
 
 @app.route("/admin")
@@ -32,7 +27,7 @@ def admin():
 
 @app.route("/test")
 def test(name="test"):
-	return f"<h1>If life is a {name}, take and A+ to the graveyard</h1>"
+	return f"<h1>If life is a {name}, take an A+ to the graveyard</h1>"
 
 if __name__ == "__main__":
 	app.run(debug = True)
